@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ./mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  api:
+    image: client_api:latest
+    volumes:
+      - ./:/client_api
+    ports:
+      - "8000:8000"
+    restart: always
